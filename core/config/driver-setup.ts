@@ -1,4 +1,3 @@
-// core/config/driver-setup.ts
 import { Builder, WebDriver } from "selenium-webdriver";
 import * as chrome from "selenium-webdriver/chrome";
 import * as data from "../data/data.json";

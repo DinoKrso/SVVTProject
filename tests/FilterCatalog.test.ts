@@ -1,4 +1,3 @@
-// tests/testScript.ts
 import { Builder, By, WebDriver } from "selenium-webdriver";
 import HomePage from "../core/page-objects/HomePage";
 import Page from "../core/page-objects/Page";
@@ -21,9 +20,6 @@ describe("Dev's Hideout Tests", () => {
 
   test("Remove Product", async () => {
     await page.open();
-
-   
-    // Click on the first element
     await homePage.clickFirstElement();
     await homePage.clickCategoryLink();
     await driver.sleep(2000) ; 

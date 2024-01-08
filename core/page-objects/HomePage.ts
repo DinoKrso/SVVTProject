@@ -1,9 +1,7 @@
-// core/page-objects/HomePage.ts
 import { By, WebDriver, until } from "selenium-webdriver";
 import Page from "./Page";
 
 class HomePage extends Page {
-  private someElementLocator = By.css("some-css-selector"); // Replace with actual selector
   private menuElementLocator = By.xpath('//*[@id="menu-item-406"]//a');
   private navigationBarLink1Locator = By.xpath('//*[@id="menu-item-344"]//a');
   private navigationBarLink2Locator = By.xpath('//*[@id="menu-item-337"]//a');
@@ -33,11 +31,6 @@ class HomePage extends Page {
     super(driver);
   }
 
-  async isSomeElementDisplayed() {
-    const someElement = await this.driver.findElement(this.someElementLocator);
-    return someElement.isDisplayed();
-  }
-
   async clickMenuElement() {
     const menuElement = await this.driver.findElement(this.menuElementLocator);
     await menuElement.click();
@@ -61,109 +54,80 @@ class HomePage extends Page {
     const imageElement = await this.driver.findElement(this.imageLocator);
     const colorDropdown = await this.driver.findElement(this.colorDropdownLocator);
 
-    // Hover over the image
     await this.driver.actions({ bridge: true }).move({ duration: 5000, origin: imageElement, x: 0, y: 0 }).perform();
-
-    // Wait for the color dropdown to be clickable
     await this.driver.wait(until.elementIsEnabled(colorDropdown));
-
-    // Click 'Black' option in the color dropdown
     await colorDropdown.click();
-      // Choose 'L' from the dropdown (replace with the actual selector for 'L')
-      const sizeOptionBlack = By.xpath('//*[@id="pa_color"]/option[text()="Black"]');
-      await this.driver.findElement(sizeOptionBlack).click();
+    const sizeOptionBlack = By.xpath('//*[@id="pa_color"]/option[text()="Black"]');
+    await this.driver.findElement(sizeOptionBlack).click();
   }
   async chooseSizeL() {
     const sizeDropdown = await this.driver.findElement(this.sizeDropdownLocator);
 
-    // Wait for the size dropdown to be clickable
     await this.driver.wait(until.elementIsEnabled(sizeDropdown));
-
-    // Click on the size dropdown
     await sizeDropdown.click();
-
-    // Choose 'L' from the dropdown (replace with the actual selector for 'L')
     const sizeOptionL = By.xpath('//*[@id="pa_size"]/option[text()="L"]');
     await this.driver.findElement(sizeOptionL).click();
   }
   async clickAddToCartButton() {
     const addToCartButton = await this.driver.findElement(this.addToCartButtonLocator);
 
-    // Wait for the button to be clickable
     await this.driver.wait(until.elementIsEnabled(addToCartButton));
-
-    // Click on the "Add to Cart" button
     await addToCartButton.click();
   }
   async clickAdditionalLink() {
     const additionalLink = await this.driver.findElement(this.additionalLinkLocator);
 
-    // Wait for the link to be clickable
     await this.driver.wait(until.elementIsEnabled(additionalLink));
-
-    // Click on the additional link
     await additionalLink.click();
   }
 
   async clickPostLink() {
     const postLink = await this.driver.findElement(this.postLinkLocator);
 
-    // Wait for the link to be clickable
     await this.driver.wait(until.elementIsEnabled(postLink));
-
-    // Click on the post link
     await postLink.click();
   }
   async clickCategoryLink() {
     const categoryLink = await this.driver.findElement(this.categoryLinkLocator);
     await categoryLink.click();
-    // Add any necessary waits or checks after clicking the category link
   }
   async clickNavigationBarLink1() {
     const link1 = await this.driver.findElement(this.navigationBarLink1Locator);
     await link1.click();
-    // Add any necessary waits or checks after clicking the link
   }
 
   async clickNavigationBarLink2() {
     const link2 = await this.driver.findElement(this.navigationBarLink2Locator);
     await link2.click();
-    // Add any necessary waits or checks after clicking the link
   }
 
   async hoverOverNavigationBarElement() {
     const hoverElement = await this.driver.findElement(this.navigationBarHoverElementLocator);
     await this.driver.actions({ bridge: true }).move({ duration: 500, origin: hoverElement, x: 0, y: 0 }).perform();
-    // Add any necessary waits or checks after hovering over the element
   }
 
   async clickNavigationBarSubLink() {
     const subLink = await this.driver.findElement(this.navigationBarSubLinkLocator);
     await subLink.click();
-    // Add any necessary waits or checks after clicking the sub-link
-  }
+    }
   async clickAdditionalSubLink() {
     const additionalSubLink = await this.driver.findElement(this.additionalSubLinkLocator);
     await additionalSubLink.click();
-    // Add any necessary waits or checks after clicking the additional sub-link
   }
 
   async enterUsername(username: string) {
     const usernameElement = await this.driver.findElement(this.usernameLocator);
     await usernameElement.sendKeys(username);
-    // Add any necessary waits or checks after entering the username
   }
 
   async enterPassword(password: string) {
     const passwordElement = await this.driver.findElement(this.passwordLocator);
     await passwordElement.sendKeys(password);
-    // Add any necessary waits or checks after entering the password
   }
 
   async clickLoginButton() {
     const loginButton = await this.driver.findElement(this.loginButtonLocator);
     await loginButton.click();
-    // Add any necessary waits or checks after clicking the login button
   }
   async enterEmail(email: string) {
     const emailField = await this.driver.findElement(this.emailFieldLocator);
@@ -187,7 +151,6 @@ class HomePage extends Page {
   async clickSizeGuide() {
     const sizeGuideElement = await this.driver.findElement(this.sizeGuideLocator);
     await sizeGuideElement.click();
-    // Add any necessary waits or checks after clicking the size guide
   }
 }
 

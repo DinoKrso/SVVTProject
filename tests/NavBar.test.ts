@@ -20,33 +20,22 @@ describe("Dev's Hideout Tests", () => {
 
   test("Load the page and click elements", async () => {
     await page.open();
-    //const isSomeElementDisplayed = await homePage.isSomeElementDisplayed();
-    //expect(isSomeElementDisplayed).toBeTruthy();
     await driver.sleep(2000);
-    // Click on the menu element
     await homePage.clickMenuElement();
     await driver.sleep(2000);
     const pageTitle = await driver.getTitle();
     expect(pageTitle).toEqual("Shop - Dev's Hideout");
-    // click on the first
+
     await homePage.clickNavigationBarLink1();
     await driver.sleep(2000);
     const pageAbout = await driver.getTitle();
     expect(pageAbout).toEqual("About - Dev's Hideout");
 
-    // Click on the second navigation bar link
     await homePage.clickNavigationBarLink2();
     await driver.sleep(2000);
     const pageContact = await driver.getTitle();
     expect(pageContact).toEqual("Contact - Dev's Hideout");
-
-    // Hover over the navigation bar element
     await homePage.hoverOverNavigationBarElement();
-
-    // Click on the navigation bar sub-link
     await homePage.clickNavigationBarSubLink()
-
-
-    // Add assertions or further actions after clicking the second element if needed
   },25000);
 });

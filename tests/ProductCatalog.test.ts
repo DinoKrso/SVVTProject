@@ -20,16 +20,10 @@ describe("Dev's Hideout Tests", () => {
 
   test("Load the page and click elements", async () => {
     await page.open();
-    //const isSomeElementDisplayed = await homePage.isSomeElementDisplayed();
-    //expect(isSomeElementDisplayed).toBeTruthy();
     await driver.sleep(2000);
-    // Click on the menu element
     await homePage.clickMenuElement();
     await driver.sleep(2000);
-    // Click on the second element
     await homePage.clickSecondElement();
-
-    // Add assertions or further actions after clicking the second element if needed
   },25000);
 });
 

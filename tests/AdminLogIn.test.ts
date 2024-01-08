@@ -22,26 +22,13 @@ describe("Your Test Suite", () => {
   test("Admin Log In", async () => {
     await page.open();
 
-
-
-    // Hover over the navigation bar element
     await homePage.hoverOverNavigationBarElement();
-
-
-    // Click on the additional sub-link
     await homePage.clickAdditionalSubLink();
-
-    // Locate and enter the username
     await homePage.enterUsername("test@ibu.edu.ba");
-
-    // Locate and enter the password
     await homePage.enterPassword("pass123");
     await driver.sleep(2000);
 
-    // Click on the login button
     await homePage.clickLoginButton();
     await driver.sleep(2000);
-
-    // Add any necessary assertions or further actions after these interactions
   },25000);
 });

@@ -1,4 +1,3 @@
-// core/page-objects/Page.ts
 import { By, WebDriver } from "selenium-webdriver";
 import * as data from "../data/data.json";
 

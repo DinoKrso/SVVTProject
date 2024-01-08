@@ -1,4 +1,3 @@
-// tests/testScript.ts
 import { Builder, By, WebDriver } from "selenium-webdriver";
 import HomePage from "../core/page-objects/HomePage";
 import Page from "../core/page-objects/Page";
@@ -21,11 +20,7 @@ describe("Dev's Hideout Tests", () => {
 
   test("Size Guide", async () => {
     await page.open();
-
-    // Click on the first element
     await homePage.clickFirstElement();
-
-    // Click on the third element
     await homePage.clickThirdElement();
     await driver.sleep(2000);
     await homePage.clickSizeGuide();
@@ -33,7 +28,5 @@ describe("Dev's Hideout Tests", () => {
     const messageElement = await driver.findElement(By.xpath('//html//body//div[4]//div//div[1]//h4'));
     const messageText = await messageElement.getText();
     expect(messageText).toEqual("Size guide");
-
-    // Add assertions or further actions after performing these interactions if needed
   },25000);
 });
